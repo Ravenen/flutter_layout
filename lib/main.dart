@@ -21,6 +21,7 @@ class MyApp extends StatelessWidget {
 
     return MaterialApp(
       title: 'BlaBlaCar Layout',
+      debugShowCheckedModeBanner: false,
       theme: ThemeData(primarySwatch: Colors.grey),
       home: Scaffold(
         body: SafeArea(
