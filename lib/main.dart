@@ -10,6 +10,19 @@ class MyApp extends StatelessWidget {
   // This widget is the root of your application.
   @override
   Widget build(BuildContext context) {
+    Widget titleSection = Row(
+      children: const [
+        Expanded(
+          child: Text(
+            'Куди ви хочете поїхати?',
+            style: TextStyle(
+              fontWeight: FontWeight.bold,
+              fontSize: 24
+            ),
+          ),
+        ),
+      ],
+    );
 
     return MaterialApp(
       title: 'BlaBlaCar Layout',
@@ -17,9 +30,11 @@ class MyApp extends StatelessWidget {
       home: Scaffold(
         body: SafeArea(
           child: Container(
-            padding: const EdgeInsets.all(20),
+            padding: const EdgeInsets.all(30),
             child: Column(
-              children: [],
+              children: [
+                titleSection,
+              ],
             ),
           ),
         ),
