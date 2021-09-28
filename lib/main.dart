@@ -26,13 +26,16 @@ class MyApp extends StatelessWidget {
   // This widget is the root of your application.
   @override
   Widget build(BuildContext context) {
-    Widget titleSection = Row(
-      children: const [
-        Text(
-          'Куди ви хочете поїхати?',
-          style: TextStyle(fontWeight: FontWeight.bold, fontSize: 24),
-        ),
-      ],
+    Widget titleSection = Container(
+      padding: const EdgeInsets.only(bottom: 30),
+      child: Row(
+        children: const [
+          Text(
+            'Куди ви хочете поїхати?',
+            style: TextStyle(fontWeight: FontWeight.bold, fontSize: 24),
+          ),
+        ],
+      ),
     );
 
     Widget textFieldsSection = Row(
