@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:layout_app/colors.dart';
 
 void main() {
   runApp(const MyApp());
@@ -6,6 +7,21 @@ void main() {
 
 class MyApp extends StatelessWidget {
   const MyApp({Key? key}) : super(key: key);
+
+  Widget _buildTextField(String hint) {
+    return Container(
+        padding: const EdgeInsets.symmetric(vertical: 10),
+        child: TextField(
+          decoration: InputDecoration(
+              border: const OutlineInputBorder(
+                borderRadius: BorderRadius.all(Radius.circular(20)),
+                borderSide: BorderSide.none,
+              ),
+              filled: true,
+              fillColor: CustomColors.generateMaterialColor(Colors.white)[600],
+              hintText: hint),
+        ));
+  }
 
   // This widget is the root of your application.
   @override
@@ -15,6 +31,19 @@ class MyApp extends StatelessWidget {
         Text(
           'Куди ви хочете поїхати?',
           style: TextStyle(fontWeight: FontWeight.bold, fontSize: 24),
+        ),
+      ],
+    );
+
+    Widget textFieldsSection = Row(
+      children: [
+        Expanded(
+          child: Column(
+            children: [
+              _buildTextField('Lorem Ipsum з'),
+              _buildTextField('Lorem Ipsum до'),
+            ],
+          ),
         ),
       ],
     );
@@ -30,6 +59,7 @@ class MyApp extends StatelessWidget {
             child: Column(
               children: [
                 titleSection,
+                textFieldsSection,
               ],
             ),
           ),
