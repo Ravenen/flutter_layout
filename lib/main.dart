@@ -12,14 +12,9 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     Widget titleSection = Row(
       children: const [
-        Expanded(
-          child: Text(
-            'Куди ви хочете поїхати?',
-            style: TextStyle(
-              fontWeight: FontWeight.bold,
-              fontSize: 24
-            ),
-          ),
+        Text(
+          'Куди ви хочете поїхати?',
+          style: TextStyle(fontWeight: FontWeight.bold, fontSize: 24),
         ),
       ],
     );
