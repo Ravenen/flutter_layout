@@ -1,7 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter/widgets.dart';
-import 'package:layout_app/colors.dart';
+
+import 'theme/app_theme.dart';
+import 'theme/custom_colors.dart';
 
 void main() {
   runApp(const MyApp());
@@ -115,10 +117,7 @@ class MyApp extends StatelessWidget {
     return MaterialApp(
       title: 'BlaBlaCar Layout',
       debugShowCheckedModeBanner: false,
-      theme: ThemeData(
-        primaryColor: Colors.lightBlue,
-        primarySwatch: CustomColors.onlyWhite,
-      ),
+      theme: appTheme,
       home: Scaffold(
         body: SafeArea(
           child: ListView(
