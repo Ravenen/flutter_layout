@@ -46,6 +46,7 @@ class MyApp extends StatelessWidget {
       child: ListTile(
         title: Text(from + " → " + to),
         subtitle: Text(passengersNumber.toString() + ' пасажир'),
+        minLeadingWidth: 0,
         leading: _buildVerticallyCenteredIcon(Icons.watch_later_outlined),
         trailing: _buildVerticallyCenteredIcon(Icons.arrow_forward_ios_rounded),
       ),
@@ -86,7 +87,7 @@ class MyApp extends StatelessWidget {
       child: Row(
         mainAxisAlignment: MainAxisAlignment.spaceBetween,
         children: [
-          _buildPickerText('Учора, 23:00'),
+          _buildPickerText('Сьогодні, 12:00'),
           _buildPickerText('1 пасажир'),
         ],
       ),
@@ -94,8 +95,14 @@ class MyApp extends StatelessWidget {
 
     Widget rideHistorySector = Column(
       children: [
-        _buildRideHistoryListTile('Львів дуже довга назва Львівська область',
-            'Червоноград дуже довга назва Львівська область', 1),
+        _buildRideHistoryListTile('Львів, Львівська область, Україна, 79000',
+            'Червоноград, Львівська область, Україна, 80100', 1),
+        _buildRideHistoryListTile('Червоноград, Львівська область, Україна, 80100',
+            'Львів, Львівська область, Україна, 79000', 1),
+        _buildRideHistoryListTile('Львів, Львівська область, Україна, 79000',
+            'Самбір, Львівська область, Україна, 81400', 1),
+        _buildRideHistoryListTile('Самбір, Львівська область, Україна, 81400',
+            'Львів, Львівська область, Україна, 79000', 1),
       ],
     );
     SystemChrome.setSystemUIOverlayStyle(const SystemUiOverlayStyle(
@@ -107,6 +114,7 @@ class MyApp extends StatelessWidget {
       title: 'BlaBlaCar Layout',
       debugShowCheckedModeBanner: false,
       theme: ThemeData(
+        primaryColor: Colors.lightBlue,
         primarySwatch: CustomColors.onlyWhite,
       ),
       home: Scaffold(
