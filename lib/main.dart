@@ -57,13 +57,10 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     Widget titleSection = Container(
       padding: const EdgeInsets.only(bottom: 30),
-      child: Row(
-        children: const [
-          Text(
-            'Куди ви хочете поїхати?',
-            style: TextStyle(fontWeight: FontWeight.bold, fontSize: 24),
-          ),
-        ],
+      alignment: Alignment.centerLeft,
+      child: const Text(
+        'Куди ви хочете поїхати?',
+        style: TextStyle(fontWeight: FontWeight.bold, fontSize: 24),
       ),
     );
 
