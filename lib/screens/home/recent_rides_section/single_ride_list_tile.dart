@@ -30,6 +30,10 @@ class SingleRideListTile extends StatelessWidget {
       result = "ів";
     }
 
+    if (quantity % 10 == 1 && quantity % 100 != 11) {
+      result = "";
+    }
+
     return result;
   }
 
