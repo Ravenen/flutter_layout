@@ -43,18 +43,19 @@ class MyApp extends StatelessWidget {
         Expanded(
           child: Column(
             children: [
-              _buildTextField('Lorem Ipsum з'),
-              _buildTextField('Lorem Ipsum до'),
+              _buildTextField('Виїжджаєте з'),
+              _buildTextField('Прямуєте до'),
             ],
           ),
         ),
       ],
     );
-
     return MaterialApp(
       title: 'BlaBlaCar Layout',
       debugShowCheckedModeBanner: false,
-      theme: ThemeData(primarySwatch: Colors.grey),
+      theme: ThemeData(
+        primarySwatch: CustomColors.onlyWhite,
+      ),
       home: Scaffold(
         body: SafeArea(
           child: Container(
