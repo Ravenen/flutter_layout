@@ -1,0 +1,161 @@
+import 'package:flutter/cupertino.dart';
+import 'package:flutter/material.dart';
+import 'package:layout_app/theme/custom_colors.dart';
+
+class HomeScreen extends StatefulWidget {
+  const HomeScreen({Key? key}) : super(key: key);
+
+  @override
+  _HomeScreenState createState() => _HomeScreenState();
+}
+
+class _HomeScreenState extends State<HomeScreen> {
+  Widget _buildTextField(String hint) {
+    return Container(
+        padding: const EdgeInsets.symmetric(vertical: 8),
+        child: TextField(
+          decoration: InputDecoration(
+              border: const OutlineInputBorder(
+                borderRadius: BorderRadius.all(Radius.circular(20)),
+                borderSide: BorderSide.none,
+              ),
+              filled: true,
+              fillColor: CustomColors.generateMaterialColor(Colors.white)[600],
+              hintText: hint),
+        ));
+  }
+
+  Widget _buildPickerText(String text) {
+    return Text(
+      text,
+      style: const TextStyle(fontSize: 16, color: Colors.lightBlue),
+    );
+  }
+
+  Widget _buildRideHistoryListTile(
+      String from, String to, int passengersNumber) {
+    Widget _buildVerticallyCenteredIcon(IconData icon) {
+      return SizedBox(
+        height: double.infinity, // Place the icon vertically centered
+        child: Icon(icon),
+      );
+    }
+
+    return Container(
+      padding: const EdgeInsets.symmetric(vertical: 10),
+      child: ListTile(
+        title: Text(from + " → " + to),
+        subtitle: Text(passengersNumber.toString() + ' пасажир'),
+        minLeadingWidth: 0,
+        leading: _buildVerticallyCenteredIcon(Icons.watch_later_outlined),
+        trailing: _buildVerticallyCenteredIcon(Icons.arrow_forward_ios_rounded),
+      ),
+    );
+  }
+
+  @override
+  Widget build(BuildContext context) {
+    Widget titleSection = Container(
+      padding: const EdgeInsets.only(bottom: 30),
+      alignment: Alignment.centerLeft,
+      child: const Text(
+        'Куди ви хочете поїхати?',
+        style: TextStyle(fontWeight: FontWeight.bold, fontSize: 28),
+      ),
+    );
+
+    Widget textFieldsSection = Row(
+      children: [
+        Expanded(
+          child: Column(
+            children: [
+              _buildTextField('Виїжджаєте з'),
+              _buildTextField('Прямуєте до'),
+            ],
+          ),
+        ),
+      ],
+    );
+
+    Widget divider = const Divider(
+      thickness: 2,
+    );
+
+    Widget timeSector = Container(
+      padding: const EdgeInsets.symmetric(vertical: 20),
+      child: Row(
+        mainAxisAlignment: MainAxisAlignment.spaceBetween,
+        children: [
+          _buildPickerText('Сьогодні, 12:00'),
+          _buildPickerText('1 пасажир'),
+        ],
+      ),
+    );
+
+    Widget rideHistorySector = Column(
+      children: [
+        _buildRideHistoryListTile('Львів, Львівська область, Україна, 79000',
+            'Червоноград, Львівська область, Україна, 80100', 1),
+        _buildRideHistoryListTile(
+            'Червоноград, Львівська область, Україна, 80100',
+            'Львів, Львівська область, Україна, 79000',
+            1),
+        _buildRideHistoryListTile('Львів, Львівська область, Україна, 79000',
+            'Самбір, Львівська область, Україна, 81400', 1),
+        _buildRideHistoryListTile('Самбір, Львівська область, Україна, 81400',
+            'Львів, Львівська область, Україна, 79000', 1),
+      ],
+    );
+
+    return Scaffold(
+      body: SafeArea(
+        child: ListView(
+          children: [
+            Container(
+              padding: const EdgeInsets.all(30),
+              child: Column(
+                children: [
+                  titleSection,
+                  textFieldsSection,
+                  divider,
+                  timeSector,
+                  divider,
+                  rideHistorySector,
+                ],
+              ),
+            ),
+          ],
+        ),
+      ),
+      bottomNavigationBar: BottomNavigationBar(
+        type: BottomNavigationBarType.fixed,
+        selectedFontSize: 11,
+        unselectedFontSize: 11,
+        items: const <BottomNavigationBarItem>[
+          BottomNavigationBarItem(
+            icon: Icon(Icons.search),
+            label: 'Пошук',
+          ),
+          BottomNavigationBarItem(
+            icon: Icon(Icons.add_circle_outline),
+            label: 'Пропозиція',
+          ),
+          BottomNavigationBarItem(
+            icon: Icon(Icons.accessible_forward),
+            label: 'Ваші поїздки',
+          ),
+          BottomNavigationBarItem(
+            icon: Icon(Icons.messenger_outline),
+            label: 'Вхідні',
+          ),
+          BottomNavigationBarItem(
+            icon: Icon(Icons.person_outline),
+            label: 'Профіль',
+          ),
+        ],
+        currentIndex: 0,
+        selectedItemColor: Theme.of(context).primaryColor,
+      ),
+    );
+  }
+}
