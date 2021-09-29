@@ -137,6 +137,35 @@ class MyApp extends StatelessWidget {
             ],
           ),
         ),
+        bottomNavigationBar: BottomNavigationBar(
+          type: BottomNavigationBarType.fixed,
+          selectedFontSize: 11,
+          unselectedFontSize: 11,
+          items: const <BottomNavigationBarItem>[
+            BottomNavigationBarItem(
+              icon: Icon(Icons.search),
+              label: 'Пошук',
+            ),
+            BottomNavigationBarItem(
+              icon: Icon(Icons.add_circle_outline),
+              label: 'Пропозиція',
+            ),
+            BottomNavigationBarItem(
+              icon: Icon(Icons.accessible_forward),
+              label: 'Ваші поїздки',
+            ),
+            BottomNavigationBarItem(
+              icon: Icon(Icons.messenger_outline),
+              label: 'Вхідні',
+            ),
+            BottomNavigationBarItem(
+              icon: Icon(Icons.person_outline),
+              label: 'Профіль',
+            ),
+          ],
+          currentIndex: 0,
+          selectedItemColor: Theme.of(context).primaryColor,
+        ),
       ),
     );
   }
