@@ -80,17 +80,21 @@ class MyApp extends StatelessWidget {
       ),
       home: Scaffold(
         body: SafeArea(
-          child: Container(
-            padding: const EdgeInsets.all(30),
-            child: Column(
-              children: [
-                titleSection,
-                textFieldsSection,
-                divider,
-                timeSector,
-                divider,
-              ],
-            ),
+          child: ListView(
+            children: [
+              Container(
+                padding: const EdgeInsets.all(30),
+                child: Column(
+                  children: [
+                    titleSection,
+                    textFieldsSection,
+                    divider,
+                    timeSector,
+                    divider,
+                  ],
+                ),
+              ),
+            ],
           ),
         ),
       ),
