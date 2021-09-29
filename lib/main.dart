@@ -50,6 +50,11 @@ class MyApp extends StatelessWidget {
         ),
       ],
     );
+
+    Widget divider = const Divider(
+      height: 30,
+      thickness: 2,
+    );
     return MaterialApp(
       title: 'BlaBlaCar Layout',
       debugShowCheckedModeBanner: false,
@@ -64,6 +69,7 @@ class MyApp extends StatelessWidget {
               children: [
                 titleSection,
                 textFieldsSection,
+                divider,
               ],
             ),
           ),
