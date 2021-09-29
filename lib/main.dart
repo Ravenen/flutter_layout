@@ -12,7 +12,7 @@ class MyApp extends StatelessWidget {
 
   Widget _buildTextField(String hint) {
     return Container(
-        padding: const EdgeInsets.symmetric(vertical: 10),
+        padding: const EdgeInsets.symmetric(vertical: 8),
         child: TextField(
           decoration: InputDecoration(
               border: const OutlineInputBorder(
@@ -61,7 +61,7 @@ class MyApp extends StatelessWidget {
       alignment: Alignment.centerLeft,
       child: const Text(
         'Куди ви хочете поїхати?',
-        style: TextStyle(fontWeight: FontWeight.bold, fontSize: 24),
+        style: TextStyle(fontWeight: FontWeight.bold, fontSize: 28),
       ),
     );
 
@@ -97,8 +97,10 @@ class MyApp extends StatelessWidget {
       children: [
         _buildRideHistoryListTile('Львів, Львівська область, Україна, 79000',
             'Червоноград, Львівська область, Україна, 80100', 1),
-        _buildRideHistoryListTile('Червоноград, Львівська область, Україна, 80100',
-            'Львів, Львівська область, Україна, 79000', 1),
+        _buildRideHistoryListTile(
+            'Червоноград, Львівська область, Україна, 80100',
+            'Львів, Львівська область, Україна, 79000',
+            1),
         _buildRideHistoryListTile('Львів, Львівська область, Україна, 79000',
             'Самбір, Львівська область, Україна, 81400', 1),
         _buildRideHistoryListTile('Самбір, Львівська область, Україна, 81400',
