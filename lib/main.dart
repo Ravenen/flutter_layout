@@ -23,6 +23,13 @@ class MyApp extends StatelessWidget {
         ));
   }
 
+  Widget _buildPickerText(String text) {
+    return Text(
+      text,
+      style: const TextStyle(fontSize: 16, color: Colors.lightBlue),
+    );
+  }
+
   // This widget is the root of your application.
   @override
   Widget build(BuildContext context) {
@@ -52,8 +59,18 @@ class MyApp extends StatelessWidget {
     );
 
     Widget divider = const Divider(
-      height: 30,
       thickness: 2,
+    );
+
+    Widget timeSector = Container(
+      padding: const EdgeInsets.symmetric(vertical: 20),
+      child: Row(
+        mainAxisAlignment: MainAxisAlignment.spaceBetween,
+        children: [
+          _buildPickerText('Учора, 23:00'),
+          _buildPickerText('1 пасажир'),
+        ],
+      ),
     );
     return MaterialApp(
       title: 'BlaBlaCar Layout',
@@ -69,6 +86,8 @@ class MyApp extends StatelessWidget {
               children: [
                 titleSection,
                 textFieldsSection,
+                divider,
+                timeSector,
                 divider,
               ],
             ),
