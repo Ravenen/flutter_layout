@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
+import 'package:flutter/widgets.dart';
 import 'package:layout_app/colors.dart';
 
 void main() {
@@ -28,6 +29,26 @@ class MyApp extends StatelessWidget {
     return Text(
       text,
       style: const TextStyle(fontSize: 16, color: Colors.lightBlue),
+    );
+  }
+
+  Widget _buildRideHistoryListTile(
+      String from, String to, int passengersNumber) {
+    Widget _buildVerticallyCenteredIcon(IconData icon) {
+      return SizedBox(
+        height: double.infinity, // Place the icon vertically centered
+        child: Icon(icon),
+      );
+    }
+
+    return Container(
+      padding: const EdgeInsets.symmetric(vertical: 10),
+      child: ListTile(
+        title: Text(from + " → " + to),
+        subtitle: Text(passengersNumber.toString() + ' пасажир'),
+        leading: _buildVerticallyCenteredIcon(Icons.watch_later_outlined),
+        trailing: _buildVerticallyCenteredIcon(Icons.arrow_forward_ios_rounded),
+      ),
     );
   }
 
@@ -73,6 +94,13 @@ class MyApp extends StatelessWidget {
         ],
       ),
     );
+
+    Widget rideHistorySector = Column(
+      children: [
+        _buildRideHistoryListTile('Львів дуже довга назва Львівська область',
+            'Червоноград дуже довга назва Львівська область', 1),
+      ],
+    );
     SystemChrome.setSystemUIOverlayStyle(const SystemUiOverlayStyle(
       statusBarColor: Colors.white,
       statusBarBrightness: Brightness.dark,
@@ -97,6 +125,7 @@ class MyApp extends StatelessWidget {
                     divider,
                     timeSector,
                     divider,
+                    rideHistorySector,
                   ],
                 ),
               ),
