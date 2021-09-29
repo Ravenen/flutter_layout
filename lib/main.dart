@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
 import 'package:layout_app/colors.dart';
 
 void main() {
@@ -72,6 +73,11 @@ class MyApp extends StatelessWidget {
         ],
       ),
     );
+    SystemChrome.setSystemUIOverlayStyle(const SystemUiOverlayStyle(
+      statusBarColor: Colors.white,
+      statusBarBrightness: Brightness.dark,
+      statusBarIconBrightness: Brightness.dark,
+    ));
     return MaterialApp(
       title: 'BlaBlaCar Layout',
       debugShowCheckedModeBanner: false,
