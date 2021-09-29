@@ -15,54 +15,17 @@ class HomeScreen extends StatefulWidget {
 class _HomeScreenState extends State<HomeScreen> {
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      body: SafeArea(
-        child: ListView(
-          children: [
-            Container(
-              padding: const EdgeInsets.all(30),
-              child: Column(
-                children: [
-                  titleSection,
-                  textFieldsSection,
-                  const Divider(thickness: 2),
-                  timePassengersOptionsSection,
-                  const Divider(thickness: 2),
-                  recentRidesSection,
-                ],
-              ),
-            ),
-          ],
-        ),
-      ),
-      bottomNavigationBar: BottomNavigationBar(
-        type: BottomNavigationBarType.fixed,
-        selectedFontSize: 11,
-        unselectedFontSize: 11,
-        items: const <BottomNavigationBarItem>[
-          BottomNavigationBarItem(
-            icon: Icon(Icons.search),
-            label: 'Пошук',
-          ),
-          BottomNavigationBarItem(
-            icon: Icon(Icons.add_circle_outline),
-            label: 'Пропозиція',
-          ),
-          BottomNavigationBarItem(
-            icon: Icon(Icons.accessible_forward),
-            label: 'Ваші поїздки',
-          ),
-          BottomNavigationBarItem(
-            icon: Icon(Icons.messenger_outline),
-            label: 'Вхідні',
-          ),
-          BottomNavigationBarItem(
-            icon: Icon(Icons.person_outline),
-            label: 'Профіль',
-          ),
+    return Container(
+      padding: const EdgeInsets.all(30),
+      child: Column(
+        children: [
+          titleSection,
+          textFieldsSection,
+          const Divider(thickness: 2),
+          timePassengersOptionsSection,
+          const Divider(thickness: 2),
+          recentRidesSection,
         ],
-        currentIndex: 0,
-        selectedItemColor: Theme.of(context).primaryColor,
       ),
     );
   }

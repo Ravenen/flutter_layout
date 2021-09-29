@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter/widgets.dart';
-import 'package:layout_app/screens/home/home_screen.dart';
+import 'package:layout_app/screens/main_screen.dart';
 
 import 'theme/app_theme.dart';
 
@@ -23,7 +23,7 @@ class MyApp extends StatelessWidget {
       title: 'BlaBlaCar Layout',
       debugShowCheckedModeBanner: false,
       theme: appTheme,
-      home: const HomeScreen(),
+      home: const MainScreen(),
     );
   }
 }
